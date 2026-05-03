@@ -1,6 +1,6 @@
 ---
 ctf_name: "KubSTU CTF 2026"
-challenge_name: "Cat girl conspiracy"
+challenge_name: "Cat-girl conspiracy"
 category: "crypto"
 difficulty: "hard"
 author: "ttzero25"
@@ -22,6 +22,8 @@ tags: [SHA256, hash, steganography, file-analysis]
 ### 분석
 
 압축 파일을 열면 다음과 같은 구조가 나온다.
+
+```
 64_what_could_this_mean.zip
 ├── what_could_this_mean.txt    # 3968자 hex string
 ├── 0/ ~ 9/
@@ -29,13 +31,14 @@ tags: [SHA256, hash, steganography, file-analysis]
 ├── _/
 ├── {/
 └── }/
+```
 
-각 폴더 안에는 <16자리 hex>.jpg 형식의 고양이 이미지가 들어 있으며, 총 1890개다.
+각 폴더 안에는 `<16자리 hex>.jpg` 형식의 고양이 이미지가 들어 있으며, 총 1890개다.
 
-핵심:
-폴더 이름 = 0~9, A~Z, _, {, } → 플래그에 쓰일 수 있는 문자 집합
-파일 이름 = 16자리 hex 값 (8 bytes)
-txt 파일 = 의미를 알 수 없는 긴 hex 문자열 (3968자)
+핵심 :
+- **폴더 이름** = `0~9`, `A~Z`, `_`, `{`, `}` → 플래그에 쓰일 수 있는 문자 집합
+- **파일 이름** = 16자리 hex 값 (8 bytes)
+- **txt 파일** = 의미를 알 수 없는 긴 hex 문자열 (3968자)
 
 ### 취약점
 
